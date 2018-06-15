@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/card_height"
     android:layout_margin="@dimen/margin_medium"
-    android:background="@drawable/google_io_18"
+    android:background="@drawable/googleceo"
     android:clickable="true"
     android:focusable="true"
     android:foreground="@drawable/ripple">
