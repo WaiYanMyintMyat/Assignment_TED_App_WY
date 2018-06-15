@@ -1,2 +1,2 @@
-# Assignment_TED_App_WY
-Assignment_TED_App_WY description
+# Assignment_TED_App_PTH
+Assignment for RecyclerView

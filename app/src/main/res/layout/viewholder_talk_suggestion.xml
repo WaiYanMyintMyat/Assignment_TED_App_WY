@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="@dimen/margin_small"
+    android:layout_marginTop="@dimen/margin_medium_3">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_img_container"
+        android:layout_width="120dp"
+        android:layout_height="75dp"
+        android:background="@drawable/fb_placeholder">
+
+        <TextView
+            android:id="@+id/tv_talk_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_small"
+            android:background="@color/bg_color_black"
+            android:paddingLeft="@dimen/margin_small"
+            android:paddingRight="@dimen/margin_small"
+            android:text="25:20"
+            android:textColor="@color/customText"
+            android:textSize="@dimen/text_small" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_talker_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/rl_img_container"
+        android:layout_marginLeft="@dimen/text_small"
+        android:layout_toRightOf="@+id/rl_img_container"
+        android:text="Mark Zukerberg"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/text_regular" />
+
+    <TextView
+        android:id="@+id/tv_talk_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_talker_name"
+        android:layout_below="@+id/tv_talker_name"
+        android:layout_marginRight="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_small"
+        android:text="Mark Zuckerberg delivers F8 keynote."
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/text_regular"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/iv_menu"
+        android:layout_width="@dimen/menu_icon"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/tv_talker_name"
+        android:src="@drawable/menu" />
+
+
+</RelativeLayout>

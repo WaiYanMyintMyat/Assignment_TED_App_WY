@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/talk_detail_appbar_height"
+            app:contentScrim="@color/primary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/iv_talk_back_drop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/google_io_18" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:theme="@style/AppTheme.PopupOverlay"
+                app:layout_collapseMode="parallax"
+                />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:id="@+id/rl_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_medium_2">
+
+            <TextView
+                android:id="@+id/tv_talker_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sundar Pichai"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_regular" />
+
+            <TextView
+                android:id="@+id/tv_talk_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_talker_name"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="Android P Features: What's New in Google's Next OS?"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_regular_2x"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_talk_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="13:38"
+                android:textSize="@dimen/text_regular"
+                android:tint="@color/secondary_text" />
+
+            <View
+                android:id="@+id/v_separator"
+                android:layout_width="1dp"
+                android:layout_height="15dp"
+                android:layout_alignTop="@+id/tv_time"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginRight="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_toRightOf="@+id/tv_time"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:id="@+id/ll_button_listen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_talk_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_toRightOf="@id/v_separator"
+                android:clickable="true"
+                android:foreground="@drawable/ripple"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/padding_one">
+
+                <ImageView
+                    android:id="@+id/iv_listen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_volume_down_gray_24dp"
+                    android:tint="@color/secondary_text" />
+
+                <TextView
+                    android:id="@+id/tv_listen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/padding_two"
+                    android:text="Listen"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="@dimen/text_regular" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btn_add_to_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_button_listen"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:src="@drawable/ic_playlist_add_black_24dp" />
+
+            <ImageView
+                android:id="@+id/btn_favourite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/btn_add_to_list"
+                android:layout_marginLeft="@dimen/margin_medium_2"
+                android:layout_toRightOf="@+id/btn_add_to_list"
+                android:src="@drawable/ic_favorite_border_black_24dp" />
+
+            <ImageView
+                android:id="@+id/btn_download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/btn_add_to_list"
+                android:layout_marginLeft="@dimen/margin_medium_2"
+                android:layout_toRightOf="@+id/btn_favourite"
+                android:src="@drawable/ic_file_download_black_24dp" />
+
+            <ImageView
+                android:id="@+id/btn_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/btn_add_to_list"
+                android:layout_marginLeft="@dimen/margin_medium_2"
+                android:layout_toRightOf="@+id/btn_download"
+                android:src="@drawable/ic_share_black_24dp" />
+
+            <TextView
+                android:id="@+id/tv_talk_content_full"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/btn_add_to_list"
+                android:layout_below="@+id/btn_add_to_list"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:lineSpacingMultiplier="1.2"
+                android:text="Android P is looking to take your digital life and make it more calm and organized. At the Google I/O 2018 Keynote event today (May 8), we saw how Google's adding make your phone adapt to you, cleaning up its user interface and offering you tools so smartphone addicts can disconnect.The Android P Beta is now available to download on Google's Pixel devices, as well as select flagship devices from Essential, Nokia, OnePlus, Sony and other vendors. That's a change from past Android updates when betas were restricted to Google's Pixel and Nexus devices."
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_regular" />
+
+            <TextView
+                android:id="@+id/tv_poster"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_talk_content_full"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="TED@Google I/O 2018,Flimed Mar 2018"
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/text_regular"
+                android:textStyle="bold|italic" />
+
+            <View
+                android:id="@+id/v_top_separator"
+                android:layout_width="match_parent"
+                android:layout_below="@id/tv_poster"
+                android:layout_marginTop="@dimen/margin_medium_3"
+                style="@style/AppTheme.DividerTheme"
+                />
+
+            <TextView
+                android:id="@+id/tv_sponsor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/v_top_separator"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="TED Talks are free thanks to support from"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_small"
+                android:textStyle="italic" />
+
+            <View
+                android:id="@+id/v_sponsor"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sponsor_block_height"
+                android:layout_below="@id/tv_sponsor"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="@color/bg_sponsor_block" />
+
+            <View
+                android:id="@+id/v_middle_separator"
+                android:layout_width="match_parent"
+                android:layout_below="@id/v_sponsor"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                style="@style/AppTheme.DividerTheme" />
+
+            <TextView
+                android:id="@+id/tv_about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/v_middle_separator"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:text="About the speaker"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_regular_3x" />
+
+            <ImageView
+                android:id="@+id/iv_profile"
+                android:layout_width="@dimen/profile_pic_width"
+                android:layout_height="@dimen/profile_pic_width"
+                android:layout_alignLeft="@+id/tv_about"
+                android:layout_below="@+id/tv_about"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:src="@drawable/google_ceo"
+                />
+
+            <TextView
+                android:id="@+id/tv_talker_profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/iv_profile"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_toRightOf="@+id/iv_profile"
+                android:text="Sundar Pichai"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_regular_3x"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_talker_occupation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_talker_profile_name"
+                android:layout_below="@+id/tv_talker_profile_name"
+                android:text="CEO at Google"
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/text_small" />
+
+            <TextView
+                android:id="@+id/tv_talker_bio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_talker_occupation"
+                android:layout_below="@+id/tv_talker_occupation"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:lineSpacingMultiplier="1.2"
+                android:text="Pichai Sundararajan (born 12 July 1972), also known as Sundar Pichai, is an Indian American business executive.Pichai is the chief executive officer (CEO) of Google Inc. Formerly the Product Chief of Google, Pichai's current role was announced on 10 August 2015."
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_regular" />
+
+            <View
+                android:id="@+id/v_bottom_separator"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/tv_talker_bio"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                style="@style/AppTheme.DividerTheme" />
+
+            <TextView
+                android:id="@+id/tv_watch_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/v_bottom_separator"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:text="Watch Next"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_regular_3x" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_watch_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_watch_next"
+                android:layout_marginTop="@dimen/margin_small" />
+
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/margin_medium_2"
+        android:src="@drawable/ic_play_arrow_white_24dp"
+        app:layout_anchor="@id/appbar"
+        app:layout_anchorGravity="bottom|right" />
+
+</android.support.design.widget.CoordinatorLayout>
