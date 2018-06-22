@@ -3,10 +3,15 @@ package com.padc.assignment_ted.network;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.google.gson.Gson;
+import com.padc.assignment_ted.events.ApiErrorEvent;
+import com.padc.assignment_ted.events.SuccessGetTedTalksEvent;
+import com.padc.assignment_ted.network.response.GetTedTalksResponse;
 import com.padc.assignment_ted.utils.TedConstants;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.greenrobot.eventbus.EventBus;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -113,8 +118,22 @@ public class HttpUrlConnectionTedTalksDataAgentImpl implements TedTalksDataAgent
             }
 
             @Override
-            protected void onPostExecute(String s) {
-                super.onPostExecute(s);
+            protected void onPostExecute(String responseString) {
+                super.onPostExecute(responseString);
+                Gson gson=new Gson();
+                GetTedTalksResponse tedTalksResponse=gson.fromJson(responseString,GetTedTalksResponse.class);
+                //Log.d("onPostExecute","TedTalks List Size:"+getTedTalksResponse.getTedTalksVOList().size());
+
+                if(tedTalksResponse.isResponseOK()){
+                    //success event
+                    SuccessGetTedTalksEvent event=new SuccessGetTedTalksEvent(tedTalksResponse.getTedTalksVOList());
+                    EventBus.getDefault().post(event);
+                }else{
+                    //fail event
+                    ApiErrorEvent errorEvent=new ApiErrorEvent(tedTalksResponse.getMessage());
+                    EventBus.getDefault().post(errorEvent);
+                }
+
             }
 
         }.execute();
