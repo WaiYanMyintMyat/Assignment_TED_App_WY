@@ -5,6 +5,7 @@ import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -41,6 +42,9 @@ public class TalkItemViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.tv_time)
     TextView tvTime;
 
+    @BindView(R.id.iv_talk)
+    ImageView ivTalk;
+
 
     public TalkItemViewHolder(View itemView,TalksDelegate talksDelegate) {
         super(itemView);
@@ -59,14 +63,21 @@ public class TalkItemViewHolder extends RecyclerView.ViewHolder {
         this.tedTalksVO=tedTalksVO;
 
         //RelativeLayout Background with Glide
-        GlideApp.with(tvTalker.getContext()).load(tedTalksVO.getImageUrl()).into(new SimpleTarget<Drawable>() {
-            @Override
-            public void onResourceReady(Drawable resource, Transition<? super Drawable> transition) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    rlTalk.setBackground(resource);
-                }
-            }
-        });
+//        GlideApp.with(tvTalker.getContext()).load(tedTalksVO.getImageUrl()).into(new SimpleTarget<Drawable>() {
+//            @Override
+//            public void onResourceReady(Drawable resource, Transition<? super Drawable> transition) {
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                    rlTalk.setBackground(resource);
+//                }
+//            }
+//        });
+
+        GlideApp.with(ivTalk.getContext())
+                .load(tedTalksVO.getImageUrl())
+                .placeholder(R.drawable.placeholderone)
+                .error(R.drawable.placeholderone)
+                .centerCrop()
+                .into(ivTalk);
 
         tvTalker.setText(tedTalksVO.getSpeaker().getSpeakerName());
         tvTalkContent.setText(tedTalksVO.getTitle());

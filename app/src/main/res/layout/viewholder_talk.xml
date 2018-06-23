@@ -1,60 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rl_talk"
     android:layout_width="match_parent"
     android:layout_height="@dimen/card_height"
     android:layout_margin="@dimen/margin_medium"
-    android:background="@drawable/googleceo"
     android:clickable="true"
     android:focusable="true"
     android:foreground="@drawable/ripple">
 
-   <TextView
-       android:id="@+id/tv_talker"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:textSize="@dimen/text_regular_2x"
-       android:text="Sundar Pichai"
-       android:layout_above="@+id/tv_talk_content"
-       android:layout_marginLeft="@dimen/margin_medium"
-       android:textColor="@color/customText"
-       android:textStyle="italic"
-       />
+    <ImageView
+        android:id="@+id/iv_talk"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/googleceo"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/tv_talker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_talk_content"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:text="Sundar Pichai"
+        android:textColor="@color/customText"
+        android:textSize="@dimen/text_regular_2x"
+        android:textStyle="italic" />
 
     <TextView
         android:id="@+id/tv_talk_content"
         android:layout_width="@dimen/talk_content_width"
         android:layout_height="wrap_content"
-        android:text="Learn about Google Keynote led by Sundar Pichai."
+        android:layout_alignLeft="@+id/tv_talker"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignLeft="@+id/tv_talker"
-        android:layout_marginLeft="@dimen/margin_medium"
-        android:textSize="@dimen/text_regular_2x"
         android:layout_marginBottom="@dimen/margin_medium_2"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:text="Learn about Google Keynote led by Sundar Pichai."
         android:textColor="@color/customText"
-        android:textStyle="bold"/>
+        android:textSize="@dimen/text_regular_2x"
+        android:textStyle="bold" />
+
     <ImageView
         android:id="@+id/iv_menu"
         android:layout_width="@dimen/menu_icon"
         android:layout_height="10dp"
-        android:layout_alignRight="@+id/tv_time"
-        android:src="@drawable/menu"
         android:layout_above="@+id/tv_time"
-        android:layout_marginBottom="@dimen/margin_small"/>
+        android:layout_alignRight="@+id/tv_time"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:src="@drawable/menu" />
 
     <TextView
         android:id="@+id/tv_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:text="13:38"
-        android:textSize="@dimen/text_small"
+        android:layout_alignParentRight="true"
         android:layout_marginBottom="@dimen/margin_medium_2"
         android:layout_marginRight="@dimen/margin_medium"
+        android:text="13:38"
         android:textColor="@color/customText"
+        android:textSize="@dimen/text_small"
 
         />
 

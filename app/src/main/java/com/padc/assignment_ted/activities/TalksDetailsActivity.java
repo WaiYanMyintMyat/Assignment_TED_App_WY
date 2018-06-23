@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import com.padc.assignment_ted.adapters.SugestedTalkListAdapter;
 import com.padc.assignment_ted.data.models.TedModel;
 import com.padc.assignment_ted.data.vos.TedTalksVO;
 import com.padc.assignment_ted.utils.GlideApp;
+import com.padc.assignment_ted.utils.TedConstants;
 import com.padc.assignment_ted.utils.UtilMethods;
 
 import butterknife.BindView;
@@ -66,7 +68,7 @@ public class TalksDetailsActivity extends BaseActivity {
         ButterKnife.bind(this,this);
         Toolbar toolbar = findViewById(R.id.toolbar);
 
-        int tedTalksId = getIntent().getIntExtra("tedTalksId",0);
+        int tedTalksId = getIntent().getIntExtra(TedConstants.TED_TALKS_ID,0);
 
         setSupportActionBar(toolbar);
         if(getSupportActionBar()!=null){
@@ -84,8 +86,20 @@ public class TalksDetailsActivity extends BaseActivity {
         bindData(tedTalksVO);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                //do whatever
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     private void bindData(TedTalksVO tedTalksVO) {
-        //text Views
+
         tvTalkerName.setText(tedTalksVO.getSpeaker().getSpeakerName());
         tvTalkContent.setText(tedTalksVO.getTitle());
         String time = UtilMethods.getHourMinuteSecond(Double.parseDouble(String.valueOf(tedTalksVO.getTalkDurationSecs())));
@@ -95,8 +109,6 @@ public class TalksDetailsActivity extends BaseActivity {
         tvTalkerProfileName.setText(tedTalksVO.getSpeaker().getSpeakerName());
         tvTalkerOccupation.setVisibility(View.INVISIBLE);
         tvTalkerBio.setVisibility(View.GONE);
-
-        //ImageViews
         ivProfile.setImageResource(R.drawable.placeholderone);
         GlideApp.with(ivTalkBackDrop.getContext())
                 .load(tedTalksVO.getImageUrl())

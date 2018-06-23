@@ -2,6 +2,7 @@ package com.padc.assignment_ted.data.vos;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -55,6 +56,9 @@ public class TedTalksVO {
     }
 
     public List<TagVO> getTags() {
+        if(tags==null){
+            return new ArrayList<>();
+        }
         return tags;
     }
 }
